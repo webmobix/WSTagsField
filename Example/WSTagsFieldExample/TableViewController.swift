@@ -35,7 +35,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TagsViewCell.self), for: indexPath) as! TagsViewCell
 
-        cell.tagsField.onDidChangeHeightTo = { _ in
+        cell.tagsField.onDidChangeHeightTo = { _, _ in
             tableView.beginUpdates()
             tableView.endUpdates()
         }

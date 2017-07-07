@@ -25,11 +25,11 @@ class ViewController: UIViewController {
         tagsField.returnKeyType = .next
 
         // Events
-        tagsField.onDidAddTag = { _ in
+        tagsField.onDidAddTag = { _, _ in
             print("DidAddTag")
         }
 
-        tagsField.onDidRemoveTag = { _ in
+        tagsField.onDidRemoveTag = { _, _ in
             print("DidRemoveTag")
         }
 
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         //tagsField.addTag("🇵🇹")
     }
 
-    func didTouchTestButton(_ sender: AnyObject) {
+    @objc func didTouchTestButton(_ sender: AnyObject) {
         tagsField.padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tagsField.spaceBetweenTags = 10.0
         tagsField.font = .systemFont(ofSize: 12.0)
@@ -96,8 +96,8 @@ class ViewController: UIViewController {
         field.addTag("test3")
         field.addTag("test4")
     }
-    
-    func didTouchReadOnlyToggleButton(_ sender: AnyObject) {
+
+    @objc func didTouchReadOnlyToggleButton(_ sender: AnyObject) {
         tagsField.readOnly = !tagsField.readOnly
         if tagsField.readOnly {
             readOnlyToggleButton.setTitle("Enable Editing", for: UIControlState())

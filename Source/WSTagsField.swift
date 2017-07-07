@@ -490,7 +490,8 @@ open class WSTagsField: UIView {
     }
 
     open func removeTags() {
-        self.tags.enumerated().reversed().forEach { index, tag in
+        self.tags.enumerated().reversed().forEach { (arg) in
+            let (index, _) = arg
             removeTagAtIndex(index)
         }
     }
@@ -511,7 +512,7 @@ open class WSTagsField: UIView {
 
     // MARK: - Actions
 
-    open func onTextFieldDidChange(_ sender: AnyObject) {
+    @objc open func onTextFieldDidChange(_ sender: AnyObject) {
         if let didChangeTextEvent = onDidChangeText {
             didChangeTextEvent(self, textField.text)
         }
