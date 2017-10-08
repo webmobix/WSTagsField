@@ -80,7 +80,7 @@ open class WSTagView: UIView {
         textLabel.backgroundColor = .clear
         addSubview(textLabel)
 
-        self.displayText = tag.text
+        self.displayText = tag.displayText ?? tag.text
         updateLabelText()
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))

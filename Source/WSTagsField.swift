@@ -101,6 +101,9 @@ open class WSTagsField: UIScrollView {
     /// Called when the text field text has changed. You should update your autocompleting UI based on the text supplied.
     open var onDidChangeText: ((WSTagsField, _ text: String?) -> Void)?
 
+    /// Called when a tag will be added. Use this to set the text or displayText property on the returned WSTag.
+    open var onWillAddTag: ((WSTagsField, _ tag: WSTag) -> WSTag)?
+
     /// Called when a tag has been added. You should use this opportunity to update your local list of selected items.
     open var onDidAddTag: ((WSTagsField, _ tag: WSTag) -> Void)?
 
@@ -188,6 +191,8 @@ open class WSTagsField: UIScrollView {
 
     open func addTag(_ tag: WSTag) {
         if self.tags.contains(tag) { return }
+
+        let tag = onWillAddTag?(self, tag) ?? tag
 
         self.tags.append(tag)
 

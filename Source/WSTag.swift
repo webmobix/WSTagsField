@@ -10,11 +10,13 @@ import Foundation
 
 public struct WSTag: Hashable {
 
-    public let text: String
+  public let text: String
+  public let displayText: String?
 
-    public init(_ text: String) {
+  public init(_ text: String, _ displayText: String? = nil) {
         self.text = text
-    }
+        self.displayText = displayText
+  }
 
     public var hashValue: Int {
         return self.text.hashValue
